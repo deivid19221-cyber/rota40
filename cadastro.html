@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro.css"> 
+    <link rel="shortcut icon" href="imagens/mapa.png" type="image/x-icon">
+    <title>LocalizaBraz - Cadastro</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Cadastro</h2>
+    <form method="POST" action="cadastro_usuario.php" onsubmit="return validarSenha()">
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="nascimento">Data de Nascimento:</label>
+        <input type="date" id="nascimento" name="nascimento" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <label for="confirmar_senha">Confirmar Senha:</label>
+        <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+
+        <a href="termo.html">Termo de responsabilidade</a>
+        <br>
+        <input type="checkbox" id="termo_responsabilidade" name="termo_responsabilidade" required> 
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    <div class="message">
+        <p>Já tem uma conta? <a href="login.php">Faça login aqui</a></p>
+    </div>
+</div>
+
+<script>
+function validarSenha() {
+    const senha = document.getElementById("senha").value;
+    const confirmarSenha = document.getElementById("confirmar_senha").value;
+    if (senha !== confirmarSenha) {
+        alert("As senhas não coincidem!");
+        return false;
+    }
+    return true;
+}
+</script>
+
+</body>
+</html>
+
